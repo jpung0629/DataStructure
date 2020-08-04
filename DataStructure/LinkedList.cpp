@@ -47,7 +47,11 @@ void LinkedList::traversal() {
 Node* LinkedList::find(int value) {
 	Node* currentNode = head;
 	while (currentNode != nullptr) {
-		if (currentNode->getValue() == value) return currentNode;
+		if (currentNode->getValue() == value) {
+			std::cout << value << " is exist.";
+			return currentNode;
+		}
 		currentNode = currentNode->getNext();
 	}
+	std::cout << value << " is not exist.";
 }
