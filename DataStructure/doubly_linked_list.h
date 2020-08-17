@@ -17,6 +17,7 @@ class DoublyLinkedList {
 	DoublyNode<T>* curr;
 
 public:
+	DoublyNode<T>* getTail() { return tail; }
 	DoublyLinkedList(): head(nullptr), tail(nullptr), curr(nullptr) {}
 	
 	DoublyNode<T>* get(int position) {
@@ -32,9 +33,8 @@ public:
 		if (head != nullptr) {
 			DoublyNode<T>* prevHead = head;
 			head = head->next;
-			if (head != nullptr) {
-				head->prev = nullptr;
-			}
+			if (head != nullptr) { head->prev = nullptr; }
+			else { tail == nullptr; }
 			return prevHead;
 		}
 		return nullptr;
@@ -45,6 +45,7 @@ public:
 			DoublyNode<T>* prevTail = tail;
 			tail = tail->prev;
 			if (tail != nullptr) { tail->next = nullptr; }
+			else { head = nullptr; }
 			return prevTail;
 		}
 		return nullptr;
@@ -89,17 +90,17 @@ public:
 		tail = node;
 		node->next = nullptr;
 		node->prev = prevTail;
-		prevTail->next = tail;
-		if (head == nullptr) head = tail;
+		if (prevTail != nullptr) { prevTail->next = tail; }
+		if (head == nullptr) { head = tail; }
 	}
 	void traversal() {
 		curr = head;
 		std::cout << "traversal: [ ";
 		while (curr != nullptr) {
-			std::cout << curr->data << ((curr == tail) ? " ]" : ", ");
+			std::cout << curr->data << ((curr == tail) ? "" : ", ");
 			curr = curr->next;
 		}
-		std::cout << "\n";
+		std::cout << " ]\n";
 	}
 	void reverseTraversal() {
 		curr = tail;

@@ -1,14 +1,17 @@
 #include "singly_linked_list.h"
 #include "doubly_linked_list.h"
+#include "stack.h"
 #include <iostream>
 using namespace std;
 
 void testSinglyLinkedList();
 void testDoublyLinkedList();
+void testStack();
 
 int main() {
 	testSinglyLinkedList();
 	testDoublyLinkedList();
+	testStack();
 }
 
 void testSinglyLinkedList() {
@@ -51,4 +54,16 @@ void testDoublyLinkedList() {
 	std::cout << list.popBack()->data << std::endl;
 	list.traversal();
 	list.reverseTraversal();
+}
+
+void testStack() {
+	Stack<int> stack;
+	stack.push(1);
+	stack.push(2);
+	stack.push(4);
+	stack.pop();
+	std::cout << stack.getSize() << '\n';
+	stack.pop();
+	stack.pop();
+	std::cout << stack.peek() << std::endl;
 }
