@@ -100,7 +100,7 @@ public:
 			std::cout << curr->data << ((curr == tail) ? "" : ", ");
 			curr = curr->next;
 		}
-		std::cout << " ]\n";
+		std::cout << " ] \n";
 	}
 	void reverseTraversal() {
 		curr = tail;
