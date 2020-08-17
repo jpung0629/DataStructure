@@ -1,6 +1,15 @@
 #include "singly_linked_list.h"
+#include "doubly_linked_list.h"
 #include <iostream>
 using namespace std;
+
+void testSinglyLinkedList();
+void testDoublyLinkedList();
+
+int main() {
+	testSinglyLinkedList();
+	testDoublyLinkedList();
+}
 
 void testSinglyLinkedList() {
 	SinglyLinkedList<int>* list = new SinglyLinkedList<int>();
@@ -25,7 +34,21 @@ void testSinglyLinkedList() {
 	list->travesal();
 }
 
-int main() {
-	testSinglyLinkedList();
-}
+void testDoublyLinkedList() {
+	DoublyLinkedList<int> list;
 
+	list.insertBeginning(new DoublyNode<int>(2));
+	list.insertBeginning(new DoublyNode<int>(4));
+	list.insertEnd(new DoublyNode<int>(1));
+
+	list.insertAfter(list.get(3), new DoublyNode<int>(5));
+	list.insertBefore(list.get(4), new DoublyNode<int>(7));
+	list.insertBefore(list.get(0), new DoublyNode<int>(10));
+	list.insertAfter(list.get(6), new DoublyNode<int>(12));
+	list.traversal();
+	std::cout << std::endl;
+	std::cout << list.popFront()->data << std::endl;
+	std::cout << list.popBack()->data << std::endl;
+	list.traversal();
+	list.reverseTraversal();
+}
