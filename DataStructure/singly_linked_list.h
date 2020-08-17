@@ -149,7 +149,7 @@ public:
 				delete curr;
 				if (position == size) tail = prev;
 			}
-			size--;
+			size -= 1;
 		}
 	};
 
