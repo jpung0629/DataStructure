@@ -34,7 +34,7 @@ public:
 			DoublyNode<T>* prevHead = head;
 			head = head->next;
 			if (head != nullptr) { head->prev = nullptr; }
-			else { tail == nullptr; }
+			else { tail = nullptr; }
 			return prevHead;
 		}
 		return nullptr;

@@ -1,17 +1,20 @@
 #include "singly_linked_list.h"
 #include "doubly_linked_list.h"
 #include "stack.h"
+#include "queue.h"
 #include <iostream>
 using namespace std;
 
 void testSinglyLinkedList();
 void testDoublyLinkedList();
 void testStack();
+void testQueue();
 
 int main() {
 	testSinglyLinkedList();
 	testDoublyLinkedList();
 	testStack();
+	testQueue();
 }
 
 void testSinglyLinkedList() {
@@ -66,4 +69,14 @@ void testStack() {
 	stack.pop();
 	stack.pop();
 	std::cout << stack.peek() << std::endl;
+}
+
+void testQueue() {
+	Queue<int>* queue = new Queue<int>();
+	queue->push(1);
+	queue->pop();
+	queue->push(2);
+	queue->push(3);
+	queue->push(4);
+	queue->pop();
 }
